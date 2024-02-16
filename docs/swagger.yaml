@@ -1,0 +1,6915 @@
+definitions:
+  common.Response:
+    properties:
+      data: {}
+      hasError:
+        type: integer
+      message:
+        type: string
+    type: object
+  common.ResponsePaginate:
+    properties:
+      data: {}
+      hasError:
+        type: integer
+      limit:
+        type: integer
+      message:
+        type: string
+      page:
+        type: integer
+      totalRecord:
+        type: integer
+    type: object
+  marketplacemodel.AddBannerCmsRequest:
+    properties:
+      blue_title:
+        type: string
+      line1:
+        type: string
+      line2:
+        type: string
+      line3:
+        type: string
+      line4:
+        type: string
+      title:
+        type: string
+    type: object
+  marketplacemodel.CanCreateCollectionRequest:
+    properties:
+      banner:
+        type: string
+      contract_address:
+        type: string
+      description:
+        type: string
+      featured_image:
+        type: string
+      is_hold:
+        type: boolean
+      logo:
+        type: string
+      min_opv_holding:
+        type: string
+      name:
+        type: string
+      time_end_hold:
+        type: integer
+      time_public_sale:
+        type: integer
+      time_start_hold:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - name
+    type: object
+  marketplacemodel.ChangeMPStatusRequest:
+    properties:
+      id:
+        type: integer
+      status:
+        type: integer
+    type: object
+  marketplacemodel.ChangeReportRequest:
+    properties:
+      hide_message:
+        type: string
+      id:
+        type: integer
+      is_hide:
+        type: integer
+      is_reject:
+        type: integer
+      reject_message:
+        type: string
+    type: object
+  marketplacemodel.CreateBrandCmsRequest:
+    properties:
+      background_image:
+        type: string
+      brand_images:
+        items:
+          $ref: '#/definitions/marketplacemodel.CreateBrandImageCmsRequest'
+        type: array
+      brand_title:
+        type: string
+      description:
+        type: string
+      display_order:
+        type: integer
+      is_hot:
+        type: integer
+    type: object
+  marketplacemodel.CreateBrandImageCmsRequest:
+    properties:
+      brand_id:
+        type: integer
+      brand_name:
+        type: string
+      display_order:
+        type: integer
+      item_avatar_image:
+        type: string
+      item_background_image:
+        type: string
+      link:
+        type: string
+    type: object
+  marketplacemodel.CreateCategoryRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    required:
+    - description
+    - name
+    type: object
+  marketplacemodel.CreateCollectionRequest:
+    properties:
+      banner:
+        type: string
+      contract_address:
+        type: string
+      description:
+        maxLength: 1000
+        minLength: 0
+        type: string
+      featured_image:
+        type: string
+      is_hold:
+        type: boolean
+      item_ids:
+        items:
+          type: integer
+        type: array
+      links:
+        additionalProperties:
+          type: string
+        type: object
+      logo:
+        type: string
+      min_opv_holding:
+        type: string
+      name:
+        type: string
+      time_end_hold:
+        type: integer
+      time_public_sale:
+        type: integer
+      time_start_hold:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - banner
+    - description
+    - featured_image
+    - item_ids
+    - links
+    - logo
+    - name
+    type: object
+  marketplacemodel.CreateItemRequest:
+    properties:
+      category_id:
+        type: integer
+      code:
+        type: string
+      collection_id:
+        type: integer
+      contract_address:
+        type: string
+      cover:
+        type: string
+      description:
+        type: string
+      image:
+        type: string
+      is_air_drop:
+        type: integer
+      is_locking:
+        type: boolean
+      nft:
+        type: string
+      num_of_copies:
+        type: integer
+      property:
+        items:
+          $ref: '#/definitions/marketplacemodel.Property'
+        type: array
+      title:
+        type: string
+      transaction_id:
+        type: string
+    required:
+    - category_id
+    - description
+    - image
+    - title
+    type: object
+  marketplacemodel.CreateItemResult:
+    properties:
+      contract_address:
+        type: string
+      total_item_created:
+        type: integer
+    type: object
+  marketplacemodel.CreateMarketPlaceRequest:
+    properties:
+      auction_end_time:
+        type: string
+      auction_start_time:
+        type: string
+      contract_address:
+        type: string
+      description:
+        type: string
+      id_on_market:
+        type: integer
+      nft:
+        type: string
+      nft_contract:
+        type: string
+      price:
+        type: string
+      sell_type:
+        type: integer
+      start_price:
+        type: string
+      transaction_id:
+        type: string
+      wallet_address:
+        type: string
+    required:
+    - contract_address
+    - id_on_market
+    - nft
+    - transaction_id
+    - wallet_address
+    type: object
+  marketplacemodel.CreateMarketPlaceSoldRequest:
+    properties:
+      contract_address:
+        type: string
+      description:
+        type: string
+      id_on_market:
+        type: integer
+      market_contract:
+        type: string
+      price:
+        type: string
+      sell_type:
+        type: integer
+      transaction_id:
+        type: string
+      wallet_address:
+        type: string
+    required:
+    - contract_address
+    - id_on_market
+    - transaction_id
+    - wallet_address
+    type: object
+  marketplacemodel.HideNftRequest:
+    properties:
+      id:
+        type: integer
+      is_admin:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  marketplacemodel.Item:
+    properties:
+      category_id:
+        type: integer
+      code:
+        type: string
+      collection_id:
+        type: integer
+      contract_address:
+        type: string
+      cover:
+        type: string
+      description:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      is_approval:
+        type: integer
+      is_hide:
+        type: integer
+      is_join_event:
+        type: integer
+      is_locking:
+        type: integer
+      is_trending:
+        type: integer
+      main_item_id:
+        type: integer
+      nft:
+        type: string
+      num_of_copies:
+        type: integer
+      properties:
+        type: string
+      status:
+        type: integer
+      time_join_event:
+        type: integer
+      title:
+        type: string
+      total_like:
+        type: integer
+      transaction_id:
+        type: string
+      user_id:
+        type: integer
+      view:
+        type: integer
+    required:
+    - category_id
+    - code
+    - collection_id
+    - contract_address
+    - image
+    - is_approval
+    - is_join_event
+    - is_locking
+    - nft
+    - num_of_copies
+    - properties
+    - status
+    - time_join_event
+    - title
+    - transaction_id
+    - user_id
+    - view
+    type: object
+  marketplacemodel.ItemGetListIdFilter:
+    properties:
+      is_buy:
+        type: integer
+      item_id:
+        type: integer
+      number:
+        type: integer
+      seller_id:
+        type: integer
+    type: object
+  marketplacemodel.ItemWithContract:
+    properties:
+      contract_address:
+        type: string
+      nft_items:
+        items:
+          $ref: '#/definitions/marketplacemodel.NftItem'
+        type: array
+    required:
+    - contract_address
+    - nft_items
+    type: object
+  marketplacemodel.LikeCollectionRequest:
+    properties:
+      id:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - id
+    - user_id
+    type: object
+  marketplacemodel.LikeItemRequest:
+    properties:
+      id:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - id
+    - user_id
+    type: object
+  marketplacemodel.NftItem:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  marketplacemodel.Property:
+    properties:
+      name:
+        type: string
+      value: {}
+    required:
+    - name
+    - value
+    type: object
+  marketplacemodel.RequestReport:
+    properties:
+      item_id:
+        type: integer
+      report_message:
+        type: string
+      report_reason:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  marketplacemodel.StakingRequest:
+    properties:
+      amount:
+        type: number
+      contract_address:
+        type: string
+      interest_rate:
+        type: number
+      time_deposit:
+        type: number
+      transaction_id:
+        type: string
+      wallet_address:
+        type: string
+    required:
+    - contract_address
+    - transaction_id
+    - wallet_address
+    type: object
+  marketplacemodel.UpdateBrandCmsRequest:
+    properties:
+      background_image:
+        type: string
+      brand_title:
+        type: string
+      description:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      is_hot:
+        type: integer
+    type: object
+  marketplacemodel.UpdateBrandImageCmsRequest:
+    properties:
+      brand_name:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      item_avatar_image:
+        type: string
+      item_background_image:
+        type: string
+      link:
+        type: string
+    type: object
+  marketplacemodel.UpdateCategoryRequest:
+    properties:
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    required:
+    - description
+    - name
+    type: object
+  marketplacemodel.UpdateCollectionCmsRequest:
+    properties:
+      display_order:
+        type: integer
+      id:
+        type: integer
+      is_hot:
+        type: integer
+      is_trending:
+        type: integer
+    type: object
+  marketplacemodel.UpdateCollectionRequest:
+    properties:
+      Logo:
+        type: string
+      banner:
+        type: string
+      description:
+        type: string
+      featured_image:
+        type: string
+      id:
+        type: integer
+      item_ids:
+        items:
+          type: integer
+        type: array
+      links:
+        additionalProperties:
+          type: string
+        type: object
+      min_opv_holding:
+        type: string
+      name:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  marketplacemodel.UpdateItemCmsRequest:
+    properties:
+      display_order:
+        type: integer
+      id:
+        type: integer
+      is_trending:
+        type: integer
+      status:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - id
+    type: object
+  marketplacemodel.UpdateItemRequest:
+    properties:
+      collection_id:
+        type: integer
+      id:
+        type: integer
+      is_approved:
+        type: integer
+      status:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  marketplacemodel.UpdateItemStatusRequest:
+    properties:
+      id:
+        items:
+          type: integer
+        type: array
+      status:
+        type: integer
+    required:
+    - id
+    - status
+    type: object
+  marketplacemodel.UpdateMarketPlaceRequest:
+    properties:
+      display_order:
+        type: integer
+      id:
+        type: integer
+      is_hot:
+        type: integer
+    type: object
+  marketplacemodel.UpdateStakingStatusRequest:
+    properties:
+      id:
+        type: integer
+      status:
+        type: integer
+    type: object
+  marketplacemodel.VoteItemRequest:
+    properties:
+      contract_address:
+        type: string
+      market_place_id:
+        type: integer
+      transaction_id:
+        type: string
+      user_id:
+        type: integer
+    required:
+    - contract_address
+    - market_place_id
+    - transaction_id
+    - user_id
+    type: object
+  usermodel.CMSLoginRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  usermodel.CMSUser:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - password
+    - phone
+    - role
+    - username
+    type: object
+  usermodel.CheckExistUserRequest:
+    properties:
+      wallet_address:
+        type: string
+    required:
+    - wallet_address
+    type: object
+  usermodel.ClaimReward:
+    properties:
+      reward_id:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  usermodel.CreateRewardDepartmentRequest:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      reward_department_name:
+        type: string
+      reward_department_type:
+        type: integer
+      status:
+        type: integer
+      thumbnail:
+        type: string
+    required:
+    - reward_department_name
+    type: object
+  usermodel.CreateUserRequest:
+    properties:
+      ref_code:
+        type: string
+      user_id:
+        type: integer
+      wallet_address:
+        type: string
+    required:
+    - wallet_address
+    type: object
+  usermodel.Credential:
+    properties:
+      refresh_token:
+        type: string
+      token:
+        type: string
+    required:
+    - refresh_token
+    - token
+    type: object
+  usermodel.DailyEvent:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      event_name:
+        type: string
+      event_type:
+        type: integer
+      id:
+        type: integer
+      number_of_task:
+        type: integer
+      reward_op:
+        type: integer
+      reward_type:
+        type: integer
+      start_date:
+        type: string
+      start_date_end:
+        type: string
+      status:
+        type: integer
+      thumbnail:
+        type: string
+    required:
+    - event_name
+    - reward_op
+    type: object
+  usermodel.DefaultSetting:
+    properties:
+      left_banner:
+        items:
+          $ref: '#/definitions/usermodel.SystemSetting'
+        type: array
+      right_banner:
+        items:
+          $ref: '#/definitions/usermodel.SystemSetting'
+        type: array
+      text_banner:
+        items:
+          $ref: '#/definitions/usermodel.SystemSetting'
+        type: array
+      top_banner:
+        items:
+          $ref: '#/definitions/usermodel.SystemSetting'
+        type: array
+    type: object
+  usermodel.FollowingRequest:
+    properties:
+      follower_id:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - follower_id
+    - user_id
+    type: object
+  usermodel.NonceRequest:
+    properties:
+      wallet_address:
+        type: string
+    required:
+    - wallet_address
+    type: object
+  usermodel.NotificationSetting:
+    properties:
+      auction_expiration:
+        type: integer
+      auction_win:
+        type: integer
+      bidding_activities:
+        type: integer
+      following_activities:
+        type: integer
+      id:
+        type: integer
+      item_sold:
+        type: integer
+      like_and_follow:
+        type: integer
+      new_letter:
+        type: integer
+      out_bid:
+        type: integer
+      user_id:
+        type: integer
+      your_activities:
+        type: integer
+    type: object
+  usermodel.NounceResponse:
+    properties:
+      nounce:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  usermodel.OTPRequest:
+    properties:
+      email:
+        type: string
+      nonce:
+        type: string
+      wallet_provider:
+        type: string
+    required:
+    - email
+    - nonce
+    - wallet_provider
+    type: object
+  usermodel.OTPRequestReset:
+    properties:
+      wallet_provider:
+        type: string
+    required:
+    - wallet_provider
+    type: object
+  usermodel.PaymentNotificationRequest:
+    properties:
+      amount:
+        type: string
+      order_id:
+        type: string
+      secret_key:
+        type: string
+      sign:
+        type: string
+      status:
+        type: integer
+      time:
+        type: string
+    type: object
+  usermodel.Property:
+    properties:
+      name:
+        type: string
+      value: {}
+    required:
+    - name
+    - value
+    type: object
+  usermodel.Reward:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      expired_date_time:
+        type: string
+      id:
+        type: integer
+      image:
+        type: string
+      price:
+        type: integer
+      reward_department_id:
+        type: integer
+      reward_end_date_time:
+        type: string
+      reward_name:
+        type: string
+      reward_start_date_time:
+        type: string
+      status:
+        type: integer
+      total_reward:
+        type: integer
+      total_rewarded:
+        type: integer
+    required:
+    - reward_department_id
+    - reward_name
+    type: object
+  usermodel.RewardDepartment:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      reward_department_name:
+        type: string
+      reward_department_type:
+        type: integer
+      rewards:
+        items:
+          $ref: '#/definitions/usermodel.Reward'
+        type: array
+      status:
+        type: integer
+      thumbnail:
+        type: string
+    required:
+    - reward_department_name
+    type: object
+  usermodel.SearchRequest:
+    properties:
+      category_ids:
+        type: string
+      collection_id:
+        type: integer
+      is_join_event:
+        type: integer
+      is_just_get_nft:
+        type: integer
+      or_not_list_item_ids:
+        items:
+          type: integer
+        type: array
+      order_by:
+        type: integer
+      price_max:
+        type: number
+      price_min:
+        type: number
+      properties:
+        items:
+          $ref: '#/definitions/usermodel.Property'
+        type: array
+      sell_type:
+        type: integer
+      status:
+        type: string
+      user_id:
+        type: integer
+      value:
+        type: string
+    type: object
+  usermodel.SendVerifyEmailRequest:
+    properties:
+      display_name:
+        type: string
+      tmp_email:
+        type: string
+      user_id:
+        type: integer
+    required:
+    - display_name
+    - tmp_email
+    type: object
+  usermodel.SystemSetting:
+    properties:
+      description:
+        type: string
+      display_order:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      link:
+        type: string
+      type:
+        type: integer
+    required:
+    - type
+    type: object
+  usermodel.UpdateNotificationStatus:
+    properties:
+      id:
+        type: integer
+      user_id:
+        type: integer
+    required:
+    - id
+    type: object
+  usermodel.UpdateUserRequest:
+    properties:
+      avatar:
+        type: string
+      cover:
+        type: string
+      description:
+        type: string
+      display_name:
+        type: string
+      email:
+        type: string
+      fb_link:
+        type: string
+      id:
+        type: integer
+      ins_link:
+        type: string
+      link_in_link:
+        type: string
+      phone:
+        type: string
+      ref_code:
+        type: string
+      twitter_link:
+        type: string
+    type: object
+  usermodel.UpdateUserStatus:
+    properties:
+      id:
+        type: integer
+      status:
+        type: integer
+    type: object
+  usermodel.UserLoginRequest:
+    properties:
+      hashData:
+        type: string
+      walletAddress:
+        type: string
+    required:
+    - hashData
+    - walletAddress
+    type: object
+  usermodel.UserResponse:
+    properties:
+      avatar:
+        type: string
+      display_name:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      phone:
+        type: string
+      ref:
+        type: string
+      username:
+        type: string
+      wallet_address:
+        type: string
+    type: object
+  usermodel.UserReward:
+    properties:
+      description:
+        type: string
+      expired_date_time:
+        type: string
+      id:
+        type: integer
+      price:
+        type: integer
+      reward:
+        $ref: '#/definitions/usermodel.Reward'
+      reward_id:
+        type: integer
+      status:
+        type: integer
+      user_id:
+        type: integer
+      user_reward_title:
+        type: string
+    required:
+    - reward_id
+    - user_id
+    type: object
+  usermodel.VerifyEmailRequest:
+    properties:
+      user_id:
+        type: integer
+      verify_token:
+        type: string
+    required:
+    - user_id
+    - verify_token
+    type: object
+info:
+  contact: {}
+paths:
+  /cms/all/list_reward_department:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list reward
+      tags:
+      - CMS
+  /cms/change/brands/{id}:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateBrandCmsRequest'
+      - description: brand id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update brands
+      tags:
+      - CMS
+  /cms/change/brandsimage/{id}:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateBrandImageCmsRequest'
+      - description: brand id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update brands image
+      tags:
+      - CMS
+  /cms/collection:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: is_hot -> 1 = hot || 0 = not hot || -1 = all
+        in: query
+        name: is_hot
+        type: integer
+      - description: filter user has liked collection
+        in: query
+        name: user_id
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: search by name
+        in: query
+        name: search
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - CMS
+  /cms/collection/{id}:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateCollectionCmsRequest'
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item
+      tags:
+      - Item
+  /cms/create/brands:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateBrandCmsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: create brands
+      tags:
+      - CMS
+  /cms/create/brandsimage:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateBrandImageCmsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: create brands image
+      tags:
+      - CMS
+  /cms/daily-event:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: event_name search like
+        in: query
+        name: event_name
+        type: integer
+      - description: reward_type
+        in: query
+        name: reward_type
+        type: integer
+      - description: reward_op
+        in: query
+        name: reward_op
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: number_of_task
+        in: query
+        name: number_of_task
+        type: integer
+      - description: start_date_time timestamp
+        in: query
+        name: start_date_time
+        type: string
+      - description: end_date_time timestamp
+        in: query
+        name: end_date_time
+        type: string
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/usermodel.DailyEvent'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: save daily event request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.DailyEvent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DailyEvent'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+  /cms/daily-event/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: daily event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DailyEvent'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: daily event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DailyEvent'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: daily event id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: save daily event request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.DailyEvent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DailyEvent'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+  /cms/delete/brand/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: delete brand image
+      tags:
+      - CMS
+  /cms/delete/brandimage/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: delete brand image
+      tags:
+      - CMS
+  /cms/getbanner:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get banner
+      tags:
+      - CMS
+  /cms/hide:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.HideNftRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - Item
+  /cms/item/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: item id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail item
+      tags:
+      - CMS
+  /cms/item/list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: order by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.ResponsePaginate'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/marketplacemodel.Item'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+      security:
+      - BearerAuth: []
+      summary: get list item cms
+      tags:
+      - CMS
+  /cms/item/update-status:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateItemStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - CMS
+  /cms/item/update/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateItemCmsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - CMS
+  /cms/list/report:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list report
+      tags:
+      - CMS
+  /cms/list_reward:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list reward
+      tags:
+      - CMS
+  /cms/list_reward_department:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list reward
+      tags:
+      - CMS
+  /cms/listbrands:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: is_hot -> 1 = hot || 0 = not hot || -1 = all
+        in: query
+        name: is_hot
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list brand
+      tags:
+      - CMS
+  /cms/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login cms request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.CMSLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.Credential'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Login CMS
+      tags:
+      - CMS
+  /cms/market-place/list-item:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: sort by `field`
+        in: query
+        name: sort_by
+        type: string
+      - description: sort by price
+        in: query
+        name: price
+        type: string
+      - description: sort by total_like
+        in: query
+        name: total_like
+        type: string
+      - description: sort by is_hot
+        in: query
+        name: is_hot
+        type: string
+      - description: sort by created_at
+        in: query
+        name: created_at
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: filter by category id
+        in: query
+        name: category_id
+        type: integer
+      - description: is trending
+        in: query
+        name: is_trending
+        type: integer
+      - description: filter by creator
+        in: query
+        name: creator
+        type: integer
+      - description: filter by price range
+        in: query
+        name: price_max
+        type: integer
+      - description: filter by price range
+        in: query
+        name: price_min
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail item
+      tags:
+      - CMS
+  /cms/market-place/update/{id}:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateMarketPlaceRequest'
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update marketplace
+      tags:
+      - CMS
+  /cms/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login cms request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.CMSUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.CMSUser'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: register CMS user
+      tags:
+      - CMS
+  /cms/reward:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: save reward request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.Reward'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.Reward'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save reward CMS user
+      tags:
+      - CMS
+  /cms/reward-department:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: save reward department request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.CreateRewardDepartmentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.RewardDepartment'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+  /cms/setting:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DefaultSetting'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: setting item CMS user
+      tags:
+      - CMS
+  /cms/setting/item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: save setting request
+        in: body
+        name: user
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/usermodel.SystemSetting'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/usermodel.SystemSetting'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: save setting item CMS user
+      tags:
+      - CMS
+  /cms/setting/item/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: delete setting item CMS user
+      tags:
+      - CMS
+  /cms/unhide:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.HideNftRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - Item
+  /cms/update/report:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: update
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.ChangeReportRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: change list report
+      tags:
+      - CMS
+  /cms/updatebanner:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: update
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.AddBannerCmsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: add banner
+      tags:
+      - CMS
+  /cms/user/update-status:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.UpdateUserStatus'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: change status user (vip/basic)
+      tags:
+      - CMS
+  /common/activities:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: type activities
+        in: query
+        name: type
+        type: string
+      - description: time filter
+        in: query
+        name: time
+        type: integer
+      - description: filter user_id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - Common
+  /common/cms/item/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: file upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: file upload
+        in: query
+        name: is_image
+        required: true
+        type: integer
+      - description: file upload
+        in: formData
+        name: cover
+        type: file
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - multipart/form-data
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: upload file
+      tags:
+      - Common
+  /common/cms/search/collection:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: value to find
+        in: query
+        name: value
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: searching
+      tags:
+      - Common
+  /common/cms/upload/{type}:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: file upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: file upload
+        in: path
+        name: type
+        required: true
+        type: string
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - multipart/form-data
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: upload file
+      tags:
+      - Common
+  /common/exchange:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: opv
+        in: query
+        name: opv
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      tags:
+      - Common
+  /common/item/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: file upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: file upload
+        in: query
+        name: is_image
+        required: true
+        type: integer
+      - description: file upload
+        in: formData
+        name: cover
+        type: file
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - multipart/form-data
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: upload file
+      tags:
+      - Common
+  /common/search:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.SearchRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: searching
+      tags:
+      - Common
+  /common/upload/{type}:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: file upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: file upload
+        in: path
+        name: type
+        required: true
+        type: string
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - multipart/form-data
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: upload file
+      tags:
+      - Common
+  /item-nft/{smart_contract}/{nft}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: nft
+        required: true
+        type: string
+      - description: smart contract
+        in: path
+        name: smart_contract
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: get detail item
+      tags:
+      - Item
+  /item/{id}:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateItemRequest'
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item
+      tags:
+      - Item
+  /item/{smart_contract}/{nft}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: user id
+        in: path
+        name: nft
+        required: true
+        type: string
+      - description: user id
+        in: query
+        name: user_id
+        type: integer
+      - description: smart contract
+        in: path
+        name: smart_contract
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail item
+      tags:
+      - Item
+  /item/{smart_contract}/{nft}/history:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: nft
+        required: true
+        type: string
+      - description: smart contract
+        in: path
+        name: smart_contract
+        required: true
+        type: string
+      - description: type activities
+        in: query
+        name: type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Item
+  /item/bid/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: item id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Item Detail Bid
+      tags:
+      - Item
+  /item/can-join-event/{smart_contract}/{nft}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: smart_contract
+        in: path
+        name: smart_contract
+        required: true
+        type: string
+      - description: nft
+        in: path
+        name: nft
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get check item can join event.
+      tags:
+      - Item
+  /item/category:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: create category
+      tags:
+      - Item
+  /item/category/{id}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateCategoryRequest'
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: update category
+      tags:
+      - Item
+  /item/collection:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateCollectionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: create category
+      tags:
+      - Item
+  /item/collection-properties/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: stats CMS
+      tags:
+      - Item
+  /item/collection/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: user id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: CollectionDetail
+      tags:
+      - Item
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateCollectionRequest'
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item
+      tags:
+      - Item
+  /item/collection/{id}/history:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: type activities
+        in: query
+        name: type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Item
+  /item/collection/{id}/stats:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: time
+        in: query
+        name: time
+        type: integer
+      - description: collection id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: stats CMS
+      tags:
+      - Item
+  /item/collection/dislike:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.LikeCollectionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: dislike collection
+      tags:
+      - Item
+  /item/collection/explore:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      - description: total_item_min
+        in: query
+        name: total_item_min
+        type: integer
+      - description: total_item_max
+        in: query
+        name: total_item_max
+        type: integer
+      - description: floor_price_min
+        in: query
+        name: floor_price_min
+        type: integer
+      - description: floor_price_max
+        in: query
+        name: floor_price_max
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Item
+  /item/collection/item/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: collection id
+        in: path
+        name: collection_id
+        required: true
+        type: integer
+      - description: current_user_id
+        in: query
+        name: current_user_id
+        type: integer
+      - description: owner_id
+        in: query
+        name: owner_id
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: search nft name
+        in: query
+        name: search
+        type: string
+      - description: status arr
+        in: query
+        name: stts
+        type: string
+      - description: is_approval filter
+        in: query
+        name: is_approval
+        type: integer
+      - description: 'price: desc or asc'
+        in: query
+        name: price
+        type: string
+      - description: 'view: desc or asc'
+        in: query
+        name: view
+        type: string
+      - description: 'favourite: desc or asc'
+        in: query
+        name: favourite
+        type: string
+      - description: 'created: desc or asc'
+        in: query
+        name: created
+        type: string
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.ResponsePaginate'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/marketplacemodel.Item'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+      summary: get ListItems of collection
+      tags:
+      - Item
+  /item/collection/like:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.LikeCollectionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: like collection
+      tags:
+      - Item
+  /item/create-item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateItemRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: create category
+      tags:
+      - Item
+  /item/event/{smart_contract}/{nft}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: nft
+        required: true
+        type: string
+      - description: smart contract
+        in: path
+        name: smart_contract
+        required: true
+        type: string
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Item
+  /item/event/statistic:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Item
+  /item/explore:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      - description: price_max
+        in: query
+        name: price_max
+        type: integer
+      - description: price_min
+        in: query
+        name: price_min
+        type: integer
+      - description: collection_id
+        in: query
+        name: collection_id
+        type: integer
+      - description: category_id
+        in: query
+        name: category_id
+        type: integer
+      - description: properties
+        in: query
+        name: properties
+        type: string
+      - description: search
+        in: query
+        name: search
+        type: string
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.Item'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail item
+      tags:
+      - Item
+  /item/hide:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.HideNftRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - Item
+  /item/is-can-create-collection:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CanCreateCollectionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: create category
+      tags:
+      - Item
+  /item/list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: owner_id
+        in: query
+        name: owner_id
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: is_favourite
+        in: query
+        name: is_favourite
+        type: integer
+      - description: is_sold
+        in: query
+        name: is_sold
+        type: integer
+      - description: is_created
+        in: query
+        name: is_created
+        type: integer
+      - description: is_owned
+        in: query
+        name: is_owned
+        type: integer
+      - description: is_join_event
+        in: query
+        name: is_join_event
+        type: integer
+      - description: status arr
+        in: query
+        name: stts
+        type: string
+      - description: search by name
+        in: query
+        name: search
+        type: string
+      - description: ==1 list item hasn't collection
+        in: query
+        name: not_collection
+        type: integer
+      - description: 'price: desc or asc'
+        in: query
+        name: price
+        type: string
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.ResponsePaginate'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/marketplacemodel.Item'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.ResponsePaginate'
+      security:
+      - BearerAuth: []
+      summary: get list item
+      tags:
+      - Item
+  /item/list-category:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - Item
+  /item/list-collection:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: is_hot -> 1 = hot || 0 = not hot || -1 = all
+        in: query
+        name: is_hot
+        type: integer
+      - description: filter user has liked collection
+        in: query
+        name: user_id
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: search by name
+        in: query
+        name: search
+        type: string
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - Item
+  /item/sync:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: sync items request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.ItemWithContract'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/marketplacemodel.CreateItemResult'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      tags:
+      - Item
+  /item/unhide:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.HideNftRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update item cms
+      tags:
+      - Item
+  /item/user-collection:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - Item
+  /market-place/{id}/change-status:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.ChangeMPStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/brand/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: is_hot -> 1 = hot || 0 = not hot || -1 = all
+        in: query
+        name: is_hot
+        type: integer
+      - description: brand id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get brand
+      tags:
+      - Market Place
+  /market-place/buy-item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateMarketPlaceSoldRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/dislike:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.LikeItemRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: vote item
+      tags:
+      - Market Place
+  /market-place/explore-nft:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: user id
+        in: query
+        name: user_id
+        type: integer
+      - description: value to find
+        in: query
+        name: value
+        type: string
+      - description: many category id
+        in: query
+        name: category_ids
+        type: string
+      - description: price max
+        in: query
+        name: price_max
+        type: number
+      - description: price min
+        in: query
+        name: price_min
+        type: number
+      - description: status
+        in: query
+        name: status
+        type: string
+      - description: is join event ?
+        in: query
+        name: is_join_event
+        type: integer
+      - description: order_by
+        in: query
+        name: order_by
+        type: integer
+      - description: collection_id
+        in: query
+        name: collection_id
+        type: integer
+      - description: sell_type
+        in: query
+        name: sell_type
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: searching
+      tags:
+      - Market Place
+  /market-place/explore-statistic:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - Market Place
+  /market-place/get-list-item-token:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: ItemGetListIdFilter
+        in: body
+        name: ItemGetListIdFilter
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.ItemGetListIdFilter'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: list token
+      tags:
+      - Market Place
+  /market-place/item/{contract_address}/{nft}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: nft
+        required: true
+        type: string
+      - description: smart contract
+        in: path
+        name: contract_address
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/like:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.LikeItemRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: vote item
+      tags:
+      - Market Place
+  /market-place/list-brand:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: is_hot -> 1 = hot || 0 = not hot || -1 = all
+        in: query
+        name: is_hot
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get list brand
+      tags:
+      - Market Place
+  /market-place/list-item:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: sort by `field`
+        in: query
+        name: sort_by
+        type: string
+      - description: sort by price
+        in: query
+        name: price
+        type: string
+      - description: sort by total_like
+        in: query
+        name: total_like
+        type: string
+      - description: sort by is_hot
+        in: query
+        name: is_hot
+        type: string
+      - description: 1 sell || 2 auction
+        in: query
+        name: sell_type
+        type: string
+      - description: sort by created_at
+        in: query
+        name: created_at
+        type: string
+      - description: sort by status
+        in: query
+        name: status
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: filter by category id
+        in: query
+        name: category_id
+        type: integer
+      - description: is trending
+        in: query
+        name: is_trending
+        type: integer
+      - description: filter by creator
+        in: query
+        name: creator
+        type: integer
+      - description: filter by price range
+        in: query
+        name: price_max
+        type: integer
+      - description: filter by price range
+        in: query
+        name: price_min
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/list-item-event:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: is_show_all
+        in: query
+        name: is_show_all
+        type: integer
+      - description: sort by `field`
+        in: query
+        name: sort_by
+        type: string
+      - description: filter by category id
+        in: query
+        name: category_id
+        type: integer
+      - description: search by name
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get list item event
+      tags:
+      - Market Place
+  /market-place/list-item-voted:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: sort by `field`
+        in: query
+        name: sort_by
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/most-liked/list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/ref-network:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: time
+        in: query
+        name: time
+        type: integer
+      - description: sort_user_name
+        in: query
+        name: sort_user_name
+        type: integer
+      - description: sort_event_volume
+        in: query
+        name: sort_event_volume
+        type: integer
+      - description: sort_market_volume
+        in: query
+        name: sort_market_volume
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - Market Place
+  /market-place/request/report:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: update request
+        in: body
+        name: update
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.RequestReport'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: change list report
+      tags:
+      - Market Place
+  /market-place/sell-item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.CreateMarketPlaceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail item
+      tags:
+      - Market Place
+  /market-place/setting/default:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DefaultSetting'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: default setting item CMS user
+      tags:
+      - CMS
+  /market-place/staking-complete:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace update staking request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.UpdateStakingStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: staking item
+      tags:
+      - Market Place
+  /market-place/staking-item:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace staking request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.StakingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: staking item
+      tags:
+      - Market Place
+  /market-place/transaction:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: sort by `field`
+        in: query
+        name: sort_by
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - Market Place
+  /market-place/vote:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: marketplace vote request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/marketplacemodel.VoteItemRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: vote item
+      tags:
+      - Market Place
+  /notification/change-status:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.UpdateNotificationStatus'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update status notification
+      tags:
+      - User
+  /notification/list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: status
+        in: query
+        name: status
+        type: integer
+      - description: type
+        in: query
+        name: type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list notification of user
+      tags:
+      - User
+  /notification/read-all:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: update status notification
+      tags:
+      - User
+  /notification/setting:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get list notification of user
+      tags:
+      - Notification
+  /notification/update-setting:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: setting request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.NotificationSetting'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      tags:
+      - Notification
+  /payment/notification:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.PaymentNotificationRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DefaultSetting'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: payment notification
+      tags:
+      - PAYMENT
+  /payment/success:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.DefaultSetting'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: payment success
+      tags:
+      - PAYMENT
+  /v1/user/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/{id}/followers:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/{id}/followers-view:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/{id}/following:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/{id}/following-view:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: category id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/activities:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: type activities
+        in: query
+        name: type
+        type: string
+      - description: time filter
+        in: query
+        name: time
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/can-add-ref:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/change-profile:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.UpdateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/check-exist:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.CheckExistUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: check user exist by wallet address
+      tags:
+      - User
+  /v1/user/claim-reward:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: claim reward request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.ClaimReward'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.UserReward'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: Claim reward CMS user
+      tags:
+      - User
+  /v1/user/create-nonce:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.NonceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.NounceResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Nonce
+      tags:
+      - User
+  /v1/user/daily-event:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: current_time timestamp
+        in: query
+        name: current_time
+        type: string
+      - description: 1 -> get history
+        in: query
+        name: is_history
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/daily-event/check/{is_share}:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 1 -> is_share
+        in: query
+        name: is_share
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: user daily event check user
+      tags:
+      - User
+  /v1/user/detail:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/explore-user:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: order by
+        in: query
+        name: order_by
+        type: string
+      - description: search
+        in: query
+        name: search
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/follow:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: following request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.FollowingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: vote item
+      tags:
+      - User
+  /v1/user/get-user/{wallet_address}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: wallet_address
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/list_reward:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 1 -> get reward available
+        in: query
+        name: is_available
+        type: integer
+      - description: 1 -> is_past_reward
+        in: query
+        name: is_past_reward
+        type: integer
+      - description: 1 -> is get claimed
+        in: query
+        name: is_get_claimed
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: login request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.UserLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.Credential'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Login
+      tags:
+      - User
+  /v1/user/profile-statistic:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: user_id
+        in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get profile statistic
+      tags:
+      - User
+  /v1/user/refresh-token:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.Credential'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Refresh Token
+      tags:
+      - User
+  /v1/user/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: nonce request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/common.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/usermodel.UserResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Register
+      tags:
+      - User
+  /v1/user/reward/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id
+        in: path
+        name: id
+        type: integer
+      - description: is_get_claimed
+        in: query
+        name: is_get_claimed
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/search-history:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/send-otp:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: OTP request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.OTPRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: Send Email OTP
+      tags:
+      - User
+  /v1/user/send-otp-reset-password:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: reset password request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.OTPRequestReset'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: OTP Reset Password
+      tags:
+      - User
+  /v1/user/send-verify-email:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: Verify email request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.SendVerifyEmailRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: Send Verify Email
+      tags:
+      - User
+  /v1/user/top-collection:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: start_date
+        in: query
+        name: start_date
+        type: string
+      - description: end_date
+        in: query
+        name: end_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get top collection
+      tags:
+      - User
+  /v1/user/top-creator:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: start_date
+        in: query
+        name: start_date
+        type: integer
+      - description: end_date
+        in: query
+        name: end_date
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get top seller
+      tags:
+      - User
+  /v1/user/top-seller:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: page
+        in: query
+        name: page
+        type: integer
+      - description: start_date
+        in: query
+        name: start_date
+        type: string
+      - description: end_date
+        in: query
+        name: end_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      summary: get top seller
+      tags:
+      - User
+  /v1/user/unfollow:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: following request
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.FollowingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: vote item
+      tags:
+      - User
+  /v1/user/user_claim_reward:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+  /v1/user/verify-email:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        type: string
+      - description: Verify email request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/usermodel.VerifyEmailRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/common.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: Verify Email
+      tags:
+      - User
+  /v1/user/watch-list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: start_date
+        in: query
+        name: start_date
+        type: string
+      - description: end_date
+        in: query
+        name: end_date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: object}{object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/common.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/common.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/common.Response'
+      security:
+      - BearerAuth: []
+      summary: get detail user
+      tags:
+      - User
+swagger: "2.0"

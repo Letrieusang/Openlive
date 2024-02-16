@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap" rel="stylesheet">
+    <style>
+        html {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        .model-confirm {
+            text-align: center;
+            background: linear-gradient(180deg, #FFFFFF 27.15%, #E8F7FD 137.47%);
+            border-radius: 8px;
+        }
+
+        .model-confirm .model-confirm-title {
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 32px;
+            text-align: center;
+            color: #272727;
+            margin: 32px 0 24px 0;
+        }
+
+        .model-confirm .model-confirm-content {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            color: #272727;
+        }
+
+        .btn-confirm {
+            padding: 12px 32px;
+            margin: 32px 0;
+            width: 142px;
+            height: 48px;
+            border: #25B8E9;
+            background: #25B8E9;
+            border-radius: 100px;
+            cursor: pointer;
+            color: #FFFFFF !important;
+        }
+
+        .model-confirm-ft {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            color: #272727;
+        }
+    </style>
+</head>
+<body>
+<div class="model-confirm">
+    <div class='model-confirm-logo'>
+        <img
+                src="{{.Logo}}"
+                alt=""
+        />
+    </div>
+    <div class='model-confirm-title'>Confirm your email address</div>
+    <div class='model-confirm-content'>Hi {{.Name}}, There's just one more step: click the button below</div>
+    <div style="margin-top: 20px;min-height: 40px;">
+        <a href="{{.Web}}" target="_blank" class="btn-confirm" style="text-decoration: none;" type="primary" >
+            Confirm
+        </a>
+    </div>
+    <div class='model-confirm-ft'>@ 2020 OPENLIVE NFT</div>
+</div>
+</body>
+</html>

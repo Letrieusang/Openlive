@@ -1,0 +1,30 @@
+NAME=dungnv-go-gin
+VERSION=0.0.1
+
+ENV=dev
+
+.PHONY: start
+## migrate: start app
+# ENV: env migrate
+start:
+	go run . -e $(ENV)
+
+.PHONY: migrate
+## migrate: Run migrate DB
+# ENV: env migrate
+migrate:
+	ENV=$(ENV) go run ./migrate/migrate.go
+	@echo "migrate success"
+
+.PHONY: test
+## test: Run tests with verbose mode
+test:
+	@go test -v ./tests/*
+
+.PHONY: help
+all: help
+# help: show this help message
+help: Makefile
+	@echo " Choose a command to run: "
+	@echo
+	@sed -n 's/^##//p' $< | column -t -s ':' |  sed -e 's/^/ /'

@@ -1,0 +1,19 @@
+server:
+  port: 8081
+  sql_path: "root:123123@tcp(127.0.0.1:3306)/opv_market?parseTime=true"
+  rds_addr: "localhost:6379"
+  rds_pwd: ""
+  private_key: "opvlive"
+  sentry:
+
+blockchain:
+  http_url: "https://data-seed-prebsc-2-s1.binance.org:8545/"
+  ws_url: "wss://speedy-nodes-nyc.moralis.io/c574ac3b18c33ae56b290ad3/bsc/testnet/ws"
+  opv_marketplace_address: "0x620f0d57F87571D1412ee3f21C41657C982CBc06"
+  opv_factory_address: "0x620f0d57F87571D1412ee3f21C41657C982CBc06"
+  opv_nft_transfer_address: "0x7a83819388Fcf25589a0cdc9A85057Eeac8c4442"
+  default_image: "https://abcdefapi.openlivenft.io/storage/item/opv_logo_01052022.gif"
+
+mail:
+  email: "ngvdung0809@gmail.com"
+  password: "********"

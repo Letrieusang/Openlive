@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+migrate/migrate
+storage/*
+tmp/*
+vendor
+config/dev.yaml
+config/local.yaml
+config/prod.yaml
+Makefile
+.vscode/
+*.out
